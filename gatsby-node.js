@@ -3,10 +3,10 @@ const path = require("path")
 const fs = require("fs")
 
 exports.onPostBootstrap = async () => {
-  for (const { slug } of destinations) {
+  for (const { slug, color } of destinations) {
     fs.writeFileSync(
       `public/${slug}/manifest.json`,
-      JSON.stringify(generateManifest(slug, slug, `/${slug}`, "#ff0000"))
+      JSON.stringify(generateManifest(slug, slug, `/${slug}`, color))
     )
   }
 }
