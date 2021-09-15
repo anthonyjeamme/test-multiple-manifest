@@ -2,7 +2,7 @@ const { destinations } = require("./data/destinations")
 const path = require("path")
 const fs = require("fs")
 
-exports.onPostBuild = async () => {
+exports.onPostBootstrap = async () => {
   for (const { slug } of destinations) {
     fs.writeFileSync(
       `public/${slug}/manifest.json`,
