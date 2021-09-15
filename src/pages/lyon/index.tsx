@@ -5,7 +5,7 @@ const index = () => {
   return (
     <div className="index">
       <Seo>
-        <link rel="manifest" href="/lyon/manifest.webmanifest" />
+        <link rel="manifest" href="/lyon/manifest.json" />
       </Seo>
       Lyon
     </div>
