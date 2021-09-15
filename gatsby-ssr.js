@@ -1,7 +1,17 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/ssr-apis/
- */
+const React = require("react")
 
-// You can delete this file if you're not using it
+export const onPreRenderHTML = ({
+  pathname,
+  getHeadComponents,
+  replaceHeadComponents,
+  ...props
+}) => {
+  const headComponents = getHeadComponents()
+
+  console.log("ICI", pathname, props)
+  if (pathname.includes("/lyon/")) {
+    headComponents.push(<link rel="manifest" href="/lyon/manifest.json" />)
+  }
+
+  replaceHeadComponents(headComponents)
+}
