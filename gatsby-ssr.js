@@ -1,5 +1,7 @@
 const React = require("react")
 
+const { destinations } = require("./data/destinations")
+
 export const onPreRenderHTML = ({
   pathname,
   getHeadComponents,
@@ -8,7 +10,12 @@ export const onPreRenderHTML = ({
 }) => {
   const headComponents = getHeadComponents()
 
-  console.log("ICI", pathname, props)
+  const findDestination = destinations.find(({ slug }) =>
+    pathname.includes(slug)
+  )
+
+  console.log(findDestination)
+
   if (pathname.includes("/lyon/")) {
     headComponents.push(<link rel="manifest" href="/lyon/manifest.json" />)
   }
