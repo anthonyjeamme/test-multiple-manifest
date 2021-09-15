@@ -3,12 +3,10 @@ const path = require("path")
 const fs = require("fs")
 
 exports.onPostBuild = async () => {
-  console.log("POST BUILD")
-
   for (const { slug } of destinations) {
     fs.writeFileSync(
       `public/${slug}/manifest.json`,
-      JSON.stringify(generateManifest(slug, slug, `/${slug}`, "#ff00000"))
+      JSON.stringify(generateManifest(slug, slug, `/${slug}`, "#ff0000"))
     )
   }
 }

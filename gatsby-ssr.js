@@ -6,7 +6,6 @@ export const onPreRenderHTML = ({
   pathname,
   getHeadComponents,
   replaceHeadComponents,
-  ...props
 }) => {
   const headComponents = getHeadComponents()
 
@@ -20,4 +19,10 @@ export const onPreRenderHTML = ({
     )
   }
   replaceHeadComponents(headComponents)
+}
+
+export const onRenderBody = ({ setHtmlAttributes }) => {
+  setHtmlAttributes({
+    lang: "fr",
+  })
 }
