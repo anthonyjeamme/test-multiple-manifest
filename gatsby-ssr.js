@@ -14,11 +14,10 @@ export const onPreRenderHTML = ({
     pathname.includes(slug)
   )
 
-  console.log(findDestination)
-
-  if (pathname.includes("/lyon/")) {
-    headComponents.push(<link rel="manifest" href="/lyon/manifest.json" />)
+  if (findDestination) {
+    headComponents.push(
+      <link rel="manifest" href={`/${findDestination.slug}/manifest.json`} />
+    )
   }
-
   replaceHeadComponents(headComponents)
 }
